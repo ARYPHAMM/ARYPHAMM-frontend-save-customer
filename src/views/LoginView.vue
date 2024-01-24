@@ -13,11 +13,11 @@ const user = reactive(intAuth)
 const login =  () => {
    auth
     .login(user)
-    // .then(() => {
-    //   router.push({ name: 'web-customer' })
-    // }).catch((er) => {
-    //   fillErrors(er, error, errors,true)
-    // })
+    .then(() => {
+      // router.push({ name: 'web-customer' })
+    }).catch((er) => {
+      fillErrors(er, error, errors,true)
+    })
 }
 </script>
 <template>
