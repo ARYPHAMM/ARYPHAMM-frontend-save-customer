@@ -24,7 +24,7 @@ const router = createRouter({
       path: '/cap-nhat-khach-hang/:id?',
       name: 'web-edit-customer',
       meta: { requiresAuth: 1 },
-      component: import("../views/customer/EditView.vue"),
+      component: () => import("../views/customer/EditView.vue"),
     }
     // {
     //   path: "/dang-ky",
