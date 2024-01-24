@@ -9,8 +9,8 @@ const changeTypePas = () => {
   type.value = type.value == 'password' ? 'text' : 'password'
 }
 const user = reactive(intAuth)
-const login = async () => {
-  await auth
+const login =  () => {
+   auth
     .login(user)
     .then(() => {
       router.push({ name: 'web-customer' })
