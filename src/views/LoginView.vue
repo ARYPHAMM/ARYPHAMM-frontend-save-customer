@@ -14,7 +14,7 @@ const login =  () => {
    auth
     .login(user)
     .then(() => {
-      // router.push({ name: 'web-customer' })
+      router.push({ name: 'web-customer' })
     }).catch((er) => {
       fillErrors(er, error, errors,true)
     })
