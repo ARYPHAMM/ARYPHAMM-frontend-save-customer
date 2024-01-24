@@ -9,6 +9,8 @@ import router from './router'
 //style
 // import './assets/css/bootstrap.css'
 // import './assets/font-awesome/css/all.css'
+import './assets/theme/libs/flot/css/float-chart.css'
+import './assets/theme/dist/css/style.min.css'
 import '@/assets/scss/main.scss'
 
 // import 'bootstrap/dist/js/bootstrap.min.js'
