@@ -2,6 +2,7 @@
 import { authStore } from '@/stores/auth'
 import { auth as intAuth } from '@/interfaces/user'
 import helper from '@/helper/helper'
+// eslint-disable-next-line no-unused-vars
 const { reactive, ref, router, error, errors, fillErrors, existError } = helper()
 const type = ref('password')
 const auth = authStore()
@@ -12,11 +13,11 @@ const user = reactive(intAuth)
 const login =  () => {
    auth
     .login(user)
-    .then(() => {
-      router.push({ name: 'web-customer' })
-    }).catch((er) => {
-      fillErrors(er, error, errors,true)
-    })
+    // .then(() => {
+    //   router.push({ name: 'web-customer' })
+    // }).catch((er) => {
+    //   fillErrors(er, error, errors,true)
+    // })
 }
 </script>
 <template>
