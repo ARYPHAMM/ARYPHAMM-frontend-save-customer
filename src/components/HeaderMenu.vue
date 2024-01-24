@@ -5,9 +5,9 @@
         <!-- ============================================================== -->
         <!-- Logo -->
         <!-- ============================================================== -->
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand " href="index.html">
           <!-- Logo icon -->
-          <b class="logo-icon ps-2">
+          <b class="logo-icon ps-2 ">
             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
             <!-- Dark Logo icon -->
             <!-- <img
@@ -16,13 +16,14 @@
               class="light-logo"
               width="25"
             /> -->
+           
           </b>
           <!--End Logo icon -->
           <!-- Logo text -->
           <span class="logo-text ms-2">
             <!-- dark Logo text -->
             <!-- <img src="@/assets/theme/images/logo-text.png" alt="homepage" class="light-logo" /> -->
-            Quản lý
+             Quản lý khách hàng
           </span>
           <!-- Logo icon -->
           <!-- <b class="logo-icon"> -->
@@ -45,14 +46,13 @@
       <!-- ============================================================== -->
       <!-- End Logo -->
       <!-- ============================================================== -->
-      <div class="navbar-collapse collapse d-block" id="navbarSupportedContent" data-navbarbg="skin5">
+      <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
         <!-- ============================================================== -->
         <!-- toggle and nav items -->
         <!-- ============================================================== -->
         <ul class="navbar-nav float-start me-auto">
           <li class="nav-item d-none d-lg-block">
             <a
-              v-on:click="toggleMenu"
               class="nav-link sidebartoggler waves-effect waves-light"
               href="javascript:void(0)"
               data-sidebartype="mini-sidebar"
@@ -232,13 +232,5 @@ const logoutNow = async () => {
   await auth.logout().then(() => {
     router.push({ name: 'web-login' })
   })
-}
-const toggleMenu = () => {
-  // // eslint-disable-next-line no-undef
-  // $('#main-wrapper').toggleClass('mini-sidebar')
-  // // eslint-disable-next-line no-undef
-  // let value = $('#main-wrapper').attr('data-sidebartype') == 'full' ? 'mini-sidebar' : 'full'
-  // // eslint-disable-next-line no-undef
-  // $('#main-wrapper').attr('data-sidebartype', value)
 }
 </script>
