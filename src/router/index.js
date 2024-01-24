@@ -84,23 +84,23 @@ const router = createRouter({
 })
 // eslint-disable-next-line no-unused-vars
 router.beforeEach(async (to, from) => {
-  const { fetchUser, logout } = authStore()
+  // const { fetchUser, logout } = authStore()
   const auth_layout = to.meta.requiresAuth
   if (authStore().getToken != '') {
-    fetchUser()
-      .then((res) => {
-        if (to.path != '/' && auth_layout == 1 && Object.keys(res.data.data).length == 0) {
-          logout()
-          window.location.href = '/'
-        }
-        if (auth_layout == -1 && Object.keys(res.data.data).length > 0)
-          window.location.href = '/khach-hang'
-      })
-      // eslint-disable-next-line no-unused-vars
-      .catch((error) => {
-        logout()
-        redirectLogin(to, auth_layout)
-      })
+    // fetchUser()
+    //   .then((res) => {
+    //     if (to.path != '/' && auth_layout == 1 && Object.keys(res.data.data).length == 0) {
+    //       logout()
+    //       window.location.href = '/'
+    //     }
+    //     if (auth_layout == -1 && Object.keys(res.data.data).length > 0)
+    //       window.location.href = '/khach-hang'
+    //   })
+    //   // eslint-disable-next-line no-unused-vars
+    //   .catch((error) => {
+    //     logout()
+    //     redirectLogin(to, auth_layout)
+    //   })
     // instead of having to check every route record with
     // to.matched.some(record => record.meta.requiresAuth)
   } else {
