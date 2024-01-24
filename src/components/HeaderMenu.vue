@@ -70,7 +70,7 @@
           <!-- ============================================================== -->
           <!-- Comment -->
           <!-- ============================================================== -->
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
               href="#"
@@ -89,14 +89,14 @@
                 <a class="dropdown-item" href="#">Something else here</a>
               </li>
             </ul>
-          </li>
+          </li> -->
           <!-- ============================================================== -->
           <!-- End Comment -->
           <!-- ============================================================== -->
           <!-- ============================================================== -->
           <!-- Messages -->
           <!-- ============================================================== -->
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle waves-effect waves-dark"
               href="#"
@@ -114,7 +114,6 @@
               <ul class="list-style-none">
                 <li>
                   <div class="">
-                    <!-- Message -->
                     <a href="javascript:void(0)" class="link border-top">
                       <div class="d-flex no-block align-items-center p-10">
                         <span
@@ -127,7 +126,6 @@
                         </div>
                       </div>
                     </a>
-                    <!-- Message -->
                     <a href="javascript:void(0)" class="link border-top">
                       <div class="d-flex no-block align-items-center p-10">
                         <span
@@ -140,7 +138,6 @@
                         </div>
                       </div>
                     </a>
-                    <!-- Message -->
                     <a href="javascript:void(0)" class="link border-top">
                       <div class="d-flex no-block align-items-center p-10">
                         <span
@@ -153,7 +150,6 @@
                         </div>
                       </div>
                     </a>
-                    <!-- Message -->
                     <a href="javascript:void(0)" class="link border-top">
                       <div class="d-flex no-block align-items-center p-10">
                         <span
@@ -170,7 +166,7 @@
                 </li>
               </ul>
             </ul>
-          </li>
+          </li> -->
           <!-- ============================================================== -->
           <!-- End Messages -->
           <!-- ============================================================== -->
