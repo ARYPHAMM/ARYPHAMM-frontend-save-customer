@@ -49,6 +49,7 @@
                 <th scope="col"><b>Giới tính</b></th>
                 <th scope="col"><b>Năm sinh</b></th>
                 <th scope="col"><b>Người nhập</b></th>
+                <th scope="col"><b>Mô tả</b></th>
                 <th scope="col"><b>Thời gian nhập</b></th>
                 <th scope="col"><b>Thời gian cập nhật</b></th>
                 <th scope="col"></th>
@@ -77,6 +78,11 @@
                 <td>
                   <span v-if="item.user">
                     {{item.user.user_name}}
+                  </span>
+                </td>
+                <td>
+                  <span v-if="item.note">
+                    {{item.note}}
                   </span>
                 </td>
           

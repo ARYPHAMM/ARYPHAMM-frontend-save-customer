@@ -1,4 +1,6 @@
 import axios from "axios";
+// import.meta.env.DEV
+// import.meta.env.PROD
 const end_point =  import.meta.env.VITE_ENDPOINT
 const my_axios = axios.create({
   // baseURL: "http://cm-backend.pharmacyfull.com/api/v1/",

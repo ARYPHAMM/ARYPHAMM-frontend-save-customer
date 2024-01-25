@@ -121,6 +121,23 @@
                   </span>
                 </div>
               </div>
+              <div class="form-group row">
+                <label for="fname" class="col-sm-3 text-end control-label col-form-label"
+                  >Mô tả
+                </label>
+                <div class="col-sm-9">
+                
+                    <textarea class="form-control" name="" id="" rows="3" placeholder="Nhập mô tả"
+                    v-model="customer.note"></textarea>
+               
+                   <span
+                  v-if="existError(errors, 'note')"
+                  class="text-danger"
+                  v-html="existError(errors, 'note')"
+                >
+                   </span>
+                </div>
+              </div>
             </div>
             <div class="border-top">
               <div class="card-body">

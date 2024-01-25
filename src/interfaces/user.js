@@ -17,7 +17,8 @@ export const customer = {
    last_name:"",
    phone_number:"",
    gender:"male",
-   date_of_birth:""
+   date_of_birth:"",
+   note:""
 };
 export const auth = {
   user_name: "",
