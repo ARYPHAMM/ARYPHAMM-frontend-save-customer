@@ -48,6 +48,9 @@
                 <th scope="col"><b>Họ tên</b></th>
                 <th scope="col"><b>Giới tính</b></th>
                 <th scope="col"><b>Năm sinh</b></th>
+                <th scope="col"><b>Người nhập</b></th>
+                <th scope="col"><b>Thời gian nhập</b></th>
+                <th scope="col"><b>Thời gian cập nhật</b></th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -71,6 +74,23 @@
                     {{ dateFormat(item.date_of_birth) }}
                   </span>
                 </td>
+                <td>
+                  <span v-if="item.user">
+                    {{item.user.user_name}}
+                  </span>
+                </td>
+          
+                <td>
+                  <span v-if="item.created_at">
+                    {{dateTimeFormat(item.created_at)}}
+                  </span>
+                </td>
+                <td>
+                  <span v-if="item.updated_at">
+                    {{dateTimeFormat(item.updated_at)}}
+                  </span>
+                </td>
+               
                 <td>
                   <RouterLink
                     class="btn"
@@ -100,7 +120,7 @@
 import { customerStore } from '@/stores/customer'
 import PaginationWeb from '../../components/PaginationWeb.vue'
 import helper from '@/helper/helper'
-const { computed, dateFormat, RouterLink, ref, debounce, showSuccessMsg, confirmPopup } = helper()
+const { computed, dateFormat, RouterLink, ref, debounce, showSuccessMsg, confirmPopup,dateTimeFormat } = helper()
 const { fetchItems, removeItem } = customerStore()
 const handlePagination = (page, value) => {
   fetchItems({ page: page, ...value })
