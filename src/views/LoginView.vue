@@ -14,8 +14,12 @@ const login =  () => {
    auth
     .login(user)
     .then(() => {
-      router.push({ name: 'web-customer' })
+      // router.push({ name: 'web-customer' })
+      let path = router.resolve({name: 'web-customer'}).path;
+      window.location.href = path
+     
     }).catch((er) => {
+       
       fillErrors(er, error, errors,true)
     })
 }
