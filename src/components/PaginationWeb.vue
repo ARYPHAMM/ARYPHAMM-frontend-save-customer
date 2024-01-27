@@ -12,14 +12,14 @@
           v-on:click="handlePage(active - 1)"
         >
           <a
-            class="page-link glyphicon glyphicon-chevron-left color-purple h-100 d-block"
+            class="cursor-poninter page-link glyphicon glyphicon-chevron-left color-purple h-100 d-block"
             href="#"
           >
             {{ "<" }}
           </a>
         </li>
         <li class="page-item" v-if="active - 4 > 0 ? true : false">
-          <a class="page-link" :disabled="true"> ... </a>
+          <a class="cursor-poninter page-link" :disabled="true"> ... </a>
         </li>
         <li
           class="page-item"
@@ -30,7 +30,7 @@
         >
           <a
             v-on:click="handlePage(index)"
-            class="page-link"
+            class="cursor-poninter page-link"
             :disabled="index == active"
             v-if="checkPage(index, active)"
             v-html="index"
@@ -40,7 +40,7 @@
           class="page-item"
           v-if="active + 4 < this.pagination1.last_page ? true : false"
         >
-          <a class="page-link" :disabled="true"> ... </a>
+          <a class="cursor-poninter page-link" :disabled="true"> ... </a>
         </li>
         <li
           :disabled="this.pagination1.page == this.pagination1.last_page"
@@ -48,7 +48,7 @@
           class="page-item"
         >
           <a
-            class="page-link glyphicon glyphicon-chevron-right color-purple h-100 d-block"
+            class="cursor-poninter page-link glyphicon glyphicon-chevron-right color-purple h-100 d-block"
             href="#"
           >
             {{ ">" }}</a
