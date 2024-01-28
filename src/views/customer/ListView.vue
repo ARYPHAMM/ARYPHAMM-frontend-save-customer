@@ -36,7 +36,7 @@
           </div>
           <div class="card-body">
             <h5 class="card-title mb-0"></h5>
-            <RouterLink class="btn btn-primary" :to="{ name: 'web-edit-customer' }">
+            <RouterLink class="btn btn-primary" :to="{ name: 'web-edit-customer',query:checkSearch() }">
               <i class="fa fa-plus" aria-hidden="true"></i> Thêm mới</RouterLink
             >
           </div>
@@ -98,7 +98,8 @@
                 </td>
                
                 <td>
-                  <RouterLink
+                  <div v-if="current_user.id == item.user_id">
+ <RouterLink
                     class="btn"
                     :to="{ name: 'web-edit-customer', params: { id: item.id } }"
                   >
@@ -107,6 +108,8 @@
                   <button @click="deleteItem(item)" class="btn">
                     <i class="fa fa-trash text-danger" aria-hidden="true"></i>
                   </button>
+                  </div>
+                 
                 </td>
               </tr>
               <tr v-if="!customerStore().getItems.length && search != ''">
@@ -126,7 +129,9 @@
 import { customerStore } from '@/stores/customer'
 import PaginationWeb from '../../components/PaginationWeb.vue'
 import helper from '@/helper/helper'
-const { computed, dateFormat, RouterLink, ref, debounce, showSuccessMsg, confirmPopup,dateTimeFormat } = helper()
+import {authStore} from '../../stores/auth'
+const current_user = authStore().getUser
+const { computed, dateFormat, RouterLink, ref, debounce, showSuccessMsg, confirmPopup,dateTimeFormat,isNumeric } = helper()
 const { fetchItems, removeItem } = customerStore()
 const handlePagination = (page, value) => {
   fetchItems({ page: page, ...value })
@@ -152,5 +157,10 @@ const handleSearch = () => {
   } else {
     handlePagination(1)
   }
+}
+const checkSearch = ()=>{
+  if(search.value && isNumeric(search.value))
+   return {phone_number: search.value}
+  return {}
 }
 </script>

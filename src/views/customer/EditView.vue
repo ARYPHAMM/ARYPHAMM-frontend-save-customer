@@ -152,15 +152,21 @@
 </template>
 <script setup>
 import helper from '@/helper/helper'
-const { route, ref, loadDetail, handleUpdate, router,error, errors, fillErrors, existError,$moment } = helper()
+const { route, ref, loadDetail, handleUpdate, router,error, errors, fillErrors, existError,$moment,isNumeric } = helper()
 import { customer as intCustomer } from '@/interfaces/user'
 const customer = ref(intCustomer)
 let id = ref(route.params.id)
+
 if (id.value) {
   loadDetail('get', `customers/${id.value}`).then((res) => {
     customer.value = res.data.data
     customer.value.date_of_birth = $moment(customer.value.date_of_birth).format("YYYY-MM-DD");
   })
+}else{
+  if( route.query.phone_number && isNumeric(route.query.phone_number)) 
+  {
+    customer.value.phone_number = route.query.phone_number
+  }
 }
 const save = () => {
   let arr = [customer.value]

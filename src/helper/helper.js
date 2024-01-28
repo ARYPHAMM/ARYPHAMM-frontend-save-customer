@@ -165,7 +165,11 @@ export default () => {
       )
     })
   }
+  function isNumeric(value) {
+    return /^-?\d+$/.test(value);
+}
   return {
+    isNumeric,
     confirmPopup,
     debounce,
     RouterLink,
