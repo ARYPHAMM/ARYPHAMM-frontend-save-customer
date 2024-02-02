@@ -167,8 +167,12 @@ export default () => {
   }
   function isNumeric(value) {
     return /^-?\d+$/.test(value);
-}
+  }
+  const checkRouterName = (router_names,class_name = 'selected') => {
+    return router_names.includes(route.name) ?class_name : ''
+  }
   return {
+    checkRouterName,
     isNumeric,
     confirmPopup,
     debounce,

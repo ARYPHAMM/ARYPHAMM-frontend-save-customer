@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../views/LoginView.vue'
-import ListView from '../views/customer/ListView.vue'
+// import ListView from '../views/customer/ListView.vue'
 import { authStore } from '@/stores/auth'
 const redirectLogin = (to, auth_layout) => {
   if (to.path != '/' && auth_layout != -1) window.location.href = '/'
@@ -14,18 +14,35 @@ const router = createRouter({
       component: LoginView,
       meta: { requiresAuth: -1 }
     },
+    //start customer
     {
       path: '/khach-hang',
       name: 'web-customer',
       meta: { requiresAuth: 1 },
-      component: ListView
+      // component: ListView
+      component: () => import('../views/customer/ListView.vue')
     },
     {
       path: '/cap-nhat-khach-hang/:id?',
       name: 'web-edit-customer',
       meta: { requiresAuth: 1 },
-      component: () => import("../views/customer/EditView.vue"),
+      component: () => import('../views/customer/EditView.vue')
+    },
+    //end customer
+    //start customer
+    {
+      path: '/danh-muc-cap-1',
+      name: 'web-category',
+      meta: { requiresAuth: 1 },
+      component: () => import('../views/category/ListView.vue')
+    },
+    {
+      path: '/cap-nhat-danh-muc-cap-1/:id?',
+      name: 'web-edit-category',
+      meta: { requiresAuth: 1 },
+      component: () => import('../views/category/EditView.vue')
     }
+    //end customer
     // {
     //   path: "/dang-ky",
     //   name: "web-register",

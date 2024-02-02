@@ -5,12 +5,35 @@
       <!-- Sidebar navigation-->
       <nav class="sidebar-nav">
         <ul id="sidebarnav" class="pt-4">
-          <li class="sidebar-item selected">
-            
-            <RouterLink aria-expanded="false" class="sidebar-link waves-effect waves-dark sidebar-link" :to="{ name: 'web-customer' }">
-             <i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Khách hàng</span>
-             </RouterLink
+          <li :class="`sidebar-item ${checkRouterName(['web-customer'])}` ">
+            <RouterLink
+              aria-expanded="false"
+              class="sidebar-link waves-effect waves-dark sidebar-link"
+              :to="{ name: 'web-customer' }"
             >
+              <i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Khách hàng</span>
+            </RouterLink>
+          </li>
+          <li :class="`sidebar-item ${checkRouterName(['web-category'])}` ">
+            <a
+              class="sidebar-link has-arrow waves-effect waves-dark"
+              href="javascript:void(0)"
+              aria-expanded="false"
+              >
+              <i class="fas fa-file-medical    "></i>
+              <span class="hide-menu">Thuốc </span></a
+            >
+            <ul aria-expanded="false" class="collapse first-level">
+              <li class="sidebar-item">
+                <RouterLink
+                  aria-expanded="false"
+                  class="sidebar-link"
+                  :to="{ name: 'web-category' }"
+                >
+                 <i class="fa fa-bars" aria-hidden="true"></i><span class="hide-menu"> Danh mục </span>
+                </RouterLink>
+              </li>
+            </ul>
           </li>
           <!-- <li class="sidebar-item">
             <a
@@ -211,7 +234,9 @@
     <!-- End Sidebar scroll-->
   </aside>
 </template>
+<script setup>
+import helper from '@/helper/helper'
 
-<script setup></script>
-
+const { checkRouterName } = helper()
+</script>
 <style lang="scss" scoped></style>
