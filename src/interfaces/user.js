@@ -24,6 +24,10 @@ export const category = {
   id: '',
   name: ''
 }
+export const subCategory = {
+  id: '',
+  name: ''
+}
 export const auth = {
   user_name: '',
   password: ''

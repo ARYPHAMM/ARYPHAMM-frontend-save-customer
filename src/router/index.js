@@ -29,7 +29,7 @@ const router = createRouter({
       component: () => import('../views/customer/EditView.vue')
     },
     //end customer
-    //start customer
+    //start category
     {
       path: '/danh-muc-cap-1',
       name: 'web-category',
@@ -41,8 +41,22 @@ const router = createRouter({
       name: 'web-edit-category',
       meta: { requiresAuth: 1 },
       component: () => import('../views/category/EditView.vue')
+    },
+    //end category
+    //start sub-category
+    {
+      path: '/danh-muc-cap-2/:id',
+      name: 'web-sub-category',
+      meta: { requiresAuth: 1 },
+      component: () => import('../views/sub-category/ListView.vue')
+    },
+    {
+      path: '/cap-nhat-danh-muc-cap-2/:id?-:category_id?',
+      name: 'web-edit-sub-category',
+      meta: { requiresAuth: 1 },
+      component: () => import('../views/sub-category/EditView.vue')
     }
-    //end customer
+    //end category
     // {
     //   path: "/dang-ky",
     //   name: "web-register",

@@ -29,7 +29,7 @@
             <input
               type="text"
               class="form-control border-dark"
-              placeholder="Tìm kiếm (Tên danh mục)"
+              placeholder="Tìm kiếm (Tên danh mục con)"
               v-model="search"
               v-on:keyup="debouncedSearch"
             />
@@ -38,7 +38,7 @@
             <h5 class="card-title mb-0"></h5>
             <RouterLink
               class="btn btn-primary"
-              :to="{ name: 'web-edit-category', query: checkSearch() }"
+              :to="{ name: 'web-edit-sub-category', query: checkSearch(),params:{...q } }"
             >
               <i class="fa fa-plus" aria-hidden="true"></i> Thêm mới</RouterLink
             >
@@ -48,26 +48,17 @@
               <thead>
                 <tr>
                   <th scope="col"><b>Tên</b></th>
-                  <th scope="col"><b>Số lượng danh mục con</b></th>
                   <th scope="col"><b>Thời gian nhập</b></th>
                   <th scope="col"><b>Thời gian cập nhật</b></th>
                   <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
-                <tr :key="index" v-for="(item, index) in categoryStore().getItems">
+                <tr :key="index" v-for="(item, index) in subCategoryStore().getItems">
                   <th scope="row">
                     {{ item.name }}
                   </th>
-                  <th scope="row">
-                    {{ item.count }}
-                      <RouterLink
-                        class="btn"
-                        :to="{ name: 'web-sub-category', params: { id: item.id } }"
-                      >
-                        <i class="fas fa-edit text-warning"></i>
-                      </RouterLink>
-                  </th>
+           
                   <td>
                     <span v-if="item.created_at">
                       {{ dateTimeFormat(item.created_at) }}
@@ -82,7 +73,7 @@
                     <div>
                       <RouterLink
                         class="btn"
-                        :to="{ name: 'web-edit-category', params: { id: item.id } }"
+                        :to="{ name: 'web-edit-sub-category', params: { id: item.id,...q }  }"
                       >
                         <i class="fas fa-edit text-warning"></i>
                       </RouterLink>
@@ -92,7 +83,7 @@
                     </div>
                   </td>
                 </tr>
-                <tr v-if="!categoryStore().getItems.length && search != ''">
+                <tr v-if="!subCategoryStore().getItems.length && search != ''">
                   <td class="text-center" colspan="5">Không tìm thấy dữ liệu</td>
                 </tr>
               </tbody>
@@ -106,7 +97,7 @@
   </div>
 </template>
 <script setup>
-import { categoryStore } from '@/stores/category'
+import { subCategoryStore } from '@/stores/sub_category'
 import PaginationWeb from '../../components/PaginationWeb.vue'
 import helper from '@/helper/helper'
 const {
@@ -117,11 +108,14 @@ const {
   showSuccessMsg,
   confirmPopup,
   dateTimeFormat,
-  isNumeric
+  route
 } = helper()
-const { fetchItems, removeItem } = categoryStore()
+const { fetchItems, removeItem } = subCategoryStore()
+const q = ref({
+  category_id: route.params.id
+})
 const handlePagination = (page, value) => {
-  fetchItems({ page: page, ...value })
+  fetchItems({ page: page, ...value,...q.value })
 }
 const deleteItem = (item) => {
   confirmPopup().then(() => {
@@ -133,7 +127,7 @@ const deleteItem = (item) => {
 const search = ref('')
 handlePagination(1)
 const getPagination = computed(() => {
-  return categoryStore().getPagination
+  return subCategoryStore().getPagination
 })
 const debouncedSearch = computed(() => debounce(handleSearch, 200))
 const handleSearch = () => {

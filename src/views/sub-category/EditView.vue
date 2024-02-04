@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12">
         <div class="card">
-          <div v-if="id && category.id">
+          <div v-if="id  && subCategory.id">
             <h3 class="p-1">Cập nhật</h3>
           </div>
           <div v-else>
@@ -21,17 +21,16 @@
                     type="text"
                     class="form-control"
                     placeholder="Nhập tên"
-                    v-model="category.name"
+                    v-model="subCategory.name"
                   />
-                   <span
-                  v-if="existError(errors, 'name')"
-                  class="text-danger"
-                  v-html="existError(errors, 'name')"
-                >
-                </span>
+                  <span
+                    v-if="existError(errors, 'name')"
+                    class="text-danger"
+                    v-html="existError(errors, 'name')"
+                  >
+                  </span>
                 </div>
               </div>
-         
             </div>
             <div class="border-top">
               <div class="card-body">
@@ -46,33 +45,35 @@
 </template>
 <script setup>
 import helper from '@/helper/helper'
-const { route, ref, loadDetail, handleUpdate, router,error, errors, fillErrors, existError,$moment,isNumeric } = helper()
-import { category as intCategory } from '@/interfaces/user'
-const category = ref(intCategory)
+const { route, ref, loadDetail, handleUpdate, router, error, errors, fillErrors, existError } =
+  helper()
+import { subCategory as intCategory } from '@/interfaces/user'
 let id = ref(route.params.id)
-
+const q = ref({
+  category_id: route.params.category_id
+})
+let subCategory = ref(intCategory)
+subCategory.value.category_id = q.value.category_id || ''
 if (id.value) {
-  loadDetail('get', `categories/${id.value}`).then((res) => {
-    category.value = res.data.data
+  loadDetail('get', `sub-categories/${id.value}`).then((res) => {
+    subCategory.value = {...res.data.data}
   })
-}
-else{
-  if( route.query.name ) 
-  {
-    category.value.name = route.query.name
+} else {
+  if (route.query.name) {
+    subCategory.value.name = route.query.name
   }
 }
 const save = () => {
-  let arr = [category.value]
-  if(!id.value)
-    arr.push('post', 'categories')
-  else
-    arr.push('put',`categories/${id.value}`)
-  handleUpdate(...arr).then(() => {
-    router.push({ name: 'web-category' })
-  }).catch(er=>{
-    fillErrors(er, error, errors,true)
-  })
+  let arr = [subCategory.value]
+  if (!id.value) arr.push('post', 'sub-categories')
+  else arr.push('put', `sub-categories/${id.value}`)
+  handleUpdate(...arr)
+    .then(() => {
+      router.push({ name: 'web-sub-category',params:{id:q.value.category_id} })
+    })
+    .catch((er) => {
+      fillErrors(er, error, errors, true)
+    })
 }
 </script>
 <style lang="scss" scoped></style>
