@@ -45,14 +45,9 @@ import "./assets/theme/libs/flot/jquery.flot.crosshair.js"
 import "./assets/theme/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"
 
 import "./assets/theme/dist/js/pages/chart/chart-page-init.js"
-var invalidChars = ["-", "e", "+", "E"]; // replace ký tự trong type number
-// eslint-disable-next-line no-undef
-$("input[type='number']").on("keydown", function (e) {
-  if (invalidChars.includes(e.key)) {
-    e.preventDefault();
-  }
-});
 
+
+import '@/assets/js/main.js'
 
 // eslint-disable-next-line no-unused-vars
 import Popper from 'popper.js'
