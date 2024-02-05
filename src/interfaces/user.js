@@ -20,6 +20,14 @@ export const customer = {
   date_of_birth: '',
   note: ''
 }
+export const product = {
+  id: '',
+  name: '',
+  description: '',
+  price: '',
+  sub_category_id: '',
+  category_id: '',
+}
 export const category = {
   id: '',
   name: ''

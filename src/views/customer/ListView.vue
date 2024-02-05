@@ -57,9 +57,9 @@
             </thead>
             <tbody>
               <tr :key="index" v-for="(item, index) in customerStore().getItems">
-                <th scope="row">
+                <td scope="row">
                   {{ item.phone_number }}
-                </th>
+                </td>
                 <td>{{ item.last_name }} {{ item.first_name }}</td>
                 <td>
                   {{

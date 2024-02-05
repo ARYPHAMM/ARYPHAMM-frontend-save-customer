@@ -55,6 +55,20 @@ const router = createRouter({
       name: 'web-edit-sub-category',
       meta: { requiresAuth: 1 },
       component: () => import('../views/sub-category/EditView.vue')
+    },
+    //end sub-category
+    //start product
+    {
+      path: '/san-pham',
+      name: 'web-product',
+      meta: { requiresAuth: 1 },
+      component: () => import('../views/product/ListView.vue')
+    },
+    {
+      path: '/cap-nhat-san-pham/:id?',
+      name: 'web-edit-product',
+      meta: { requiresAuth: 1 },
+      component: () => import('../views/product/EditView.vue')
     }
     //end category
     // {

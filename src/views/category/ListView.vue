@@ -56,18 +56,18 @@
               </thead>
               <tbody>
                 <tr :key="index" v-for="(item, index) in categoryStore().getItems">
-                  <th scope="row">
+                  <td scope="row">
                     {{ item.name }}
-                  </th>
-                  <th scope="row">
-                    {{ item.count }}
+                  </td>
+                  <td scope="row">
+                   
                       <RouterLink
-                        class="btn"
                         :to="{ name: 'web-sub-category', params: { id: item.id } }"
                       >
-                        <i class="fas fa-edit text-warning"></i>
+                        {{ item.count }}
+                        <i class="fas fa-edit "></i>
                       </RouterLink>
-                  </th>
+                  </td>
                   <td>
                     <span v-if="item.created_at">
                       {{ dateTimeFormat(item.created_at) }}
@@ -116,8 +116,7 @@ const {
   debounce,
   showSuccessMsg,
   confirmPopup,
-  dateTimeFormat,
-  isNumeric
+  dateTimeFormat
 } = helper()
 const { fetchItems, removeItem } = categoryStore()
 const handlePagination = (page, value) => {

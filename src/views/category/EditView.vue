@@ -46,7 +46,7 @@
 </template>
 <script setup>
 import helper from '@/helper/helper'
-const { route, ref, loadDetail, handleUpdate, router,error, errors, fillErrors, existError,$moment,isNumeric } = helper()
+const { route, ref, loadDetail, handleUpdate, router,error, errors, fillErrors, existError } = helper()
 import { category as intCategory } from '@/interfaces/user'
 const category = ref(intCategory)
 let id = ref(route.params.id)

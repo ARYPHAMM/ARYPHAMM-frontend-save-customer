@@ -14,14 +14,14 @@
               <i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Khách hàng</span>
             </RouterLink>
           </li>
-          <li :class="`sidebar-item ${checkRouterName(['web-category'])}` ">
+          <li :class="`sidebar-item ${checkRouterName(['web-category','web-product'])}` ">
             <a
               class="sidebar-link has-arrow waves-effect waves-dark"
               href="javascript:void(0)"
               aria-expanded="false"
               >
               <i class="fas fa-file-medical    "></i>
-              <span class="hide-menu">Thuốc </span></a
+              <span class="hide-menu">Danh mục & Thuốc </span></a
             >
             <ul aria-expanded="false" class="collapse first-level">
               <li class="sidebar-item">
@@ -31,6 +31,15 @@
                   :to="{ name: 'web-category' }"
                 >
                  <i class="fa fa-bars" aria-hidden="true"></i><span class="hide-menu"> Danh mục </span>
+                </RouterLink>
+              </li>
+              <li class="sidebar-item">
+                <RouterLink
+                  aria-expanded="false"
+                  class="sidebar-link"
+                  :to="{ name: 'web-product' }"
+                >
+                 <i class="fas fa-box    "></i><span class="hide-menu"> Thuốc </span>
                 </RouterLink>
               </li>
             </ul>
